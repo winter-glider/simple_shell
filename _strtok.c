@@ -9,7 +9,7 @@
 char *_strtok(char *str, const char *delim)
 {
 	static char *last;
-	char *token;
+	char *tokens;
 	const char *d;
 	int end = 0;
 
@@ -22,7 +22,7 @@ char *_strtok(char *str, const char *delim)
 		return (NULL);
 	}
 
-	token = last;
+	tokens = last;
 
 	while (*last && !end)
 	{
@@ -40,9 +40,10 @@ char *_strtok(char *str, const char *delim)
 			last++;
 		}
 	}
-	if (token == last)
+	if (tokens == last)
 	{
 		return (NULL);
 	}
 	else
-		return (token);
+		return (tokens);
+}
