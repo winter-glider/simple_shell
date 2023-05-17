@@ -38,3 +38,4 @@ void execute_action(char **args)
 		fprintf(stderr, "Command '%s' not found\n", *args);
 	}
 }
+

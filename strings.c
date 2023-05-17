@@ -54,15 +54,16 @@ int _strncmp(const char *str1, const char *str2, size_t n)
 
 char *_strdup(const char *str)
 {
+	char *duplicate;
+	int length = 0, i;
+
 	if (str == NULL)
 		return (NULL);
-
-	int length = 0, i;
 
 	while (str[length] != '\0')
 		length++;
 
-	char *duplicate = malloc(sizeof(char) * (length + 1));
+	duplicate = malloc(sizeof(char) * (length + 1));
 
 	if (duplicate == NULL)
 		return (NULL);

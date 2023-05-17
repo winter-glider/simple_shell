@@ -6,7 +6,6 @@
 
 void run_interactive(void)
 {
-	char **parsed_input;
 	char *user_input;
 
 	while (true)
