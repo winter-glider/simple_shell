@@ -20,12 +20,12 @@
 #include <signal.h>
 
 /* Shell core functions */
-void interpret_input(char** parsed_input, char** action);
+void interpret_input(char** parsed_input);
 char** parse_input(char* input);
-char* read_input();
+char* read_input(void);
 void execute_action(char **args);
 void run_non_interactive(char *filename);
-void run_interactive();
+void run_interactive(void);
 
 /* Helper functions */
 int split_command(char* command, char** args);
