@@ -23,10 +23,14 @@
 void interpret_input(char** parsed_input, char** action);
 char** parse_input(char* input);
 char* read_input();
-void execute_action(char **action, char **args);
+void execute_action(char **args);
+void run_non_interactive(char *filename);
+void run_interactive();
 
 /* Helper functions */
 int split_command(char* command, char** args);
-char *get_builtin_path(const char *command);
+char *get_builtin_path(char *command);
+void process_line(char *line);
+void cleanup_memory(char **parsed_input);
 
 #endif /* SHELL_H */
