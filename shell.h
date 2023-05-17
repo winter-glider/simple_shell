@@ -33,5 +33,9 @@ void run_interactive(void);
 char *get_builtin_path(char *command);
 void process_line(char *line);
 void cleanup_memory(char **parsed_input);
+int _strlen(char *s);
+int _strncmp(const char *str1, const char *str2, size_t n);
+char *_strdup(const char *str);
+char *_strcpy(char *dest, const char *src);
 
 #endif /* SHELL_H */
