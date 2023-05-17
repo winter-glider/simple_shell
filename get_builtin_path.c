@@ -13,14 +13,14 @@ char *get_builtin_path(char *command)
 
 	while (environ[i] != NULL)
 	{
-		if (strncmp(environ[i], "PATH=", 5) == 0)
+		if (_strncmp(environ[i], "PATH=", 5) == 0)
 		{
 			path = environ[i] + 5; /* Skip "PATH="*/
-			path_copy = strdup(path);
+			path_copy = _strdup(path);
 			token = strtok(path_copy, ":");
 			while (token != NULL)
 			{
-				command_path = malloc(strlen(token) + strlen(command) + 2);
+				command_path = malloc(_strlen(token) + _strlen(command) + 2);
 				sprintf(command_path, "%s/%s", token, command);
 				if (access(command_path, X_OK) == 0)
 				{
