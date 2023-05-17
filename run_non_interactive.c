@@ -9,8 +9,8 @@ void run_non_interactive(char *filename)
 {
 	char buffer[BUFFER_SIZE], *ptr, *end;
 	ssize_t read_size;
-
 	int file = open(filename, O_RDONLY);
+
 	if (file == -1)
 	{
 		perror("open");

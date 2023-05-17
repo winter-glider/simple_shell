@@ -16,11 +16,7 @@ void run_interactive(void)
 		if (user_input == NULL)
 			break;
 
-		parsed_input = parse_input(user_input);
-
-		interpret_input(parsed_input);
-		execute_action(parsed_input);
-		cleanup_memory(parsed_input);
+		process_line(user_input);
 		free(user_input);
 	}
 }
