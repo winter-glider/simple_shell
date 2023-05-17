@@ -2,7 +2,7 @@
 
 extern char **environ;
 
-char *get_builtin_path(const char *command) {
+char *get_builtin_path(char *command) {
     int i = 0;
     while (environ[i] != NULL) {
         if (strncmp(environ[i], "PATH=", 5) == 0) {

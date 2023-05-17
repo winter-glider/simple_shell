@@ -1,7 +1,7 @@
 #include "shell.h"
 
-void execute_action(char **action, char **args) {
-    char *builtin_path = get_builtin_path(*action);
+void execute_action(char **args) {
+    char *builtin_path = get_builtin_path(*args);
 
     if (builtin_path != NULL) {
         pid_t pid = fork();
@@ -21,6 +21,6 @@ void execute_action(char **action, char **args) {
 
         free(builtin_path);
     } else {
-        fprintf(stderr, "Command '%s' not found\n", *action);
+        fprintf(stderr, "Command '%s' not found\n", *args);
     }
 }
