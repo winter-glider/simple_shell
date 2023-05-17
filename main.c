@@ -4,14 +4,14 @@
  * main - entry point
  * @argc: argument count
  * @argv: argument vector
- *
  * Return: 0 (success)
  */
 
-int main(int argc, char *argv[]) {
-    if (argc > 1)
+int main(int argc, char *argv[])
+{
+	if (argc > 1)
 	{
-        /* Non-interactive mode */
+		/* Non-interactive mode */
 		run_non_interactive(argv[1]);
 	}
 	else
@@ -19,5 +19,5 @@ int main(int argc, char *argv[]) {
 		/* Interactive mode */
 		run_interactive();
 	}
-	return 0;
+	return (0);
 }
