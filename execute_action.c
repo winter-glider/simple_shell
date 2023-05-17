@@ -8,16 +8,19 @@
 
 void execute_action(char **args)
 {
-	char *builtin_path = get_builtin_path(*args);
+	char *path = get_builtin_path(*args);
 	pid_t pid;
 
-	if (builtin_path != NULL)
+	if (_strncmp(*args, "/", 1) == 0)
+		path = strdup(args[0]);
+
+	if (path != NULL)
 	{
 		pid = fork();
 		if (pid == 0)
 		{
 			/*Child process*/
-			execve(builtin_path, args, NULL);
+			execve(path, args, NULL);
 			perror("execve");
 			_exit(1);
 		}
@@ -31,7 +34,7 @@ void execute_action(char **args)
 			/*Error forking*/
 			perror("fork");
 		}
-		free(builtin_path);
+		free(path);
 	}
 	else
 	{
