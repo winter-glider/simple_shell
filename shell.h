@@ -6,6 +6,7 @@ extern char **environ;
 /* global constants */
 #define BUFFER_SIZE 1024
 
+#include "advanced.h"
 /* libs includes */
 #include <stdbool.h>
 #include <stdio.h>
