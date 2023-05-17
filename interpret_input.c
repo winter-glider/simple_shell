@@ -1,7 +1,6 @@
 #include "shell.h"
 
-void interpret_input(char **input, char **action) {
+void interpret_input(char **input) {
 	if (strcmp(input[0], "exit") == 0)
 		exit(EXIT_SUCCESS);
-    *action = input[0];
 }

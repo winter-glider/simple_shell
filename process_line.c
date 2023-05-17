@@ -10,6 +10,9 @@ void process_line(char *line)
 	char **parsed_input = parse_input(line);
 
 	if (parsed_input != NULL && parsed_input[0] != NULL)
+	{
+		interpret_input(parsed_input);
 		execute_action(parsed_input);
+	}
 	cleanup_memory(parsed_input);
 }
