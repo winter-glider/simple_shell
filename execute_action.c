@@ -38,7 +38,7 @@ void execute_action(char **args)
 	}
 	else
 	{
-		fprintf(stderr, "Command '%s' not found\n", *args);
+		fprint("Command '%s' not found\n", STDERR_FILENO, *args);
 	}
 }
 

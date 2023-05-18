@@ -10,7 +10,7 @@ void run_interactive(void)
 
 	while (true)
 	{
-		write(STDOUT_FILENO, "$ ", strlen("$ "));
+		write(STDOUT_FILENO, "($) ", strlen("($) "));
 		user_input = read_input();
 		if (user_input == NULL)
 			break;

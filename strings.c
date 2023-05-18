@@ -76,3 +76,34 @@ char *_strdup(const char *str)
 	return (duplicate);
 }
 
+/**
+ * _strstr - look for occurance of given string
+ * @haystack: source string
+ * @needle: lookup string
+ *
+ * Return: return a pointer to the beginning of the located substring
+ */
+
+char *_strstr(char *haystack, char *needle)
+{
+	const char *h, *n;
+
+	if (*needle == '\0')
+		return (haystack);
+
+	while (*haystack != '\0')
+	{
+		h = haystack;
+		n = needle;
+
+		while (*n != '\0' && *h == *n)
+		{
+			h++;
+			n++;
+		}
+		if (*n == '\0')
+			return (haystack); /* match found */
+		haystack++;
+	}
+	return (NULL);
+}
