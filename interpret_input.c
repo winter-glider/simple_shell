@@ -7,6 +7,19 @@
   */
 void interpret_input(char **input)
 {
-	if (strcmp(input[0], "exit") == 0)
+	char **env;
+	size_t len;
+
+	if (_strcmp(input[0], "exit") == 0)
 		exit(EXIT_SUCCESS);
+
+	else if (_strcmp(input[0], "env") == 0)
+	{
+		for (env = environ; *env != NULL; env++)
+		{
+			len = _strlen(*env);
+			write(1, *env, len);
+			write(1, "\n", 1);
+		}
+	}
 }
