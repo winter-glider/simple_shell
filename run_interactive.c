@@ -6,12 +6,11 @@
 
 void run_interactive(void)
 {
-	char **parsed_input;
 	char *user_input;
 
 	while (true)
 	{
-		write(STDOUT_FILENO, "$ ", strlen("$ "));
+		write(STDOUT_FILENO, "($) ", strlen("($) "));
 		user_input = read_input();
 		if (user_input == NULL)
 			break;

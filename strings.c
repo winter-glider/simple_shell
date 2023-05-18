@@ -54,15 +54,16 @@ int _strncmp(const char *str1, const char *str2, size_t n)
 
 char *_strdup(const char *str)
 {
+	char *duplicate;
+	int length = 0, i;
+
 	if (str == NULL)
 		return (NULL);
-
-	int length = 0, i;
 
 	while (str[length] != '\0')
 		length++;
 
-	char *duplicate = malloc(sizeof(char) * (length + 1));
+	duplicate = malloc(sizeof(char) * (length + 1));
 
 	if (duplicate == NULL)
 		return (NULL);
@@ -75,3 +76,34 @@ char *_strdup(const char *str)
 	return (duplicate);
 }
 
+/**
+ * _strstr - look for occurance of given string
+ * @haystack: source string
+ * @needle: lookup string
+ *
+ * Return: return a pointer to the beginning of the located substring
+ */
+
+char *_strstr(char *haystack, char *needle)
+{
+	const char *h, *n;
+
+	if (*needle == '\0')
+		return (haystack);
+
+	while (*haystack != '\0')
+	{
+		h = haystack;
+		n = needle;
+
+		while (*n != '\0' && *h == *n)
+		{
+			h++;
+			n++;
+		}
+		if (*n == '\0')
+			return (haystack); /* match found */
+		haystack++;
+	}
+	return (NULL);
+}
