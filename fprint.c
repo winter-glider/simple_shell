@@ -12,8 +12,8 @@
 void fprint(char *input, int fd, char *replacement)
 {
 	char *match = _strstr(input, "%s");
-	char result[BUFFER_SIZE];
-	size_t prefix_len;
+	char *result;
+	size_t prefix_len, replacement_len, suffix_len;
 
 	if (match == NULL)
 	{
@@ -22,13 +22,19 @@ void fprint(char *input, int fd, char *replacement)
 	}
 
 	prefix_len = match - input;
+	replacement_len = replacement != NULL ? _strlen(replacement) : 0;
+	suffix_len = _strlen(match + 2);
+
+	result = malloc(prefix_len + replacement_len + suffix_len + 1);
 
 	/* Copy the prefix before "%s" */
 	strncpy(result, input, prefix_len);
 	result[prefix_len] = '\0';
 
-	strcat(result, replacement);
+	if (replacement != NULL)
+		strcat(result, replacement);
 	strcat(result, match + 2);
 
 	write(fd, result, _strlen(result));
+	free(result);
 }
