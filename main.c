@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		/* Interactive mode */
-		run_interactive();
+		run_interactive(argv[0]);
 	}
 	return (0);
 }

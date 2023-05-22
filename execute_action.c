@@ -3,10 +3,11 @@
 /**
   *execute_action - executes the arguments
   *@args: command line arguments
+  *@prog_name: filename (argv[0])
   *Return: nothing
   */
 
-void execute_action(char **args)
+void execute_action(char **args, char *prog_name)
 {
 	char *path = get_builtin_path(*args);
 	pid_t pid;
@@ -38,7 +39,7 @@ void execute_action(char **args)
 	}
 	else
 	{
-		fprint("Command '%s' not found\n", STDERR_FILENO, *args);
+		perror(prog_name);
 	}
 }
 
