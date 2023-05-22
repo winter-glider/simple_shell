@@ -11,12 +11,13 @@ void run_interactive(char *filename)
 
 	while (true)
 	{
-		write(STDOUT_FILENO, "($) ", strlen("($) "));
+	/*	write(STDOUT_FILENO, "($) ", strlen("($) "));*/
 		user_input = read_input();
 		if (user_input == NULL)
 			break;
 
 		process_line(user_input, filename);
+write(STDOUT_FILENO, "($) ", strlen("($) "));
 		free(user_input);
 	}
 }

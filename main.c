@@ -9,15 +9,27 @@
 
 int main(int argc, char *argv[])
 {
+	
+    /* Non-interactive mode */
 	if (argc > 1)
 	{
-		/* Non-interactive mode */
+		write(1, argv[0], strlen(argv[0]));
 		run_non_interactive(argv[1]);
+        return (0);
 	}
 	else
 	{
 		/* Interactive mode */
-		run_interactive(argv[0]);
+		if (!isatty(STDIN_FILENO))
+        {
+            run_interactive(argv[0]);
+            return (0);
+        }
+		else
+		{
+			write(STDOUT_FILENO, "($) ", strlen("($) "));
+			run_interactive(argv[0]);
+		}
 	}
 	return (0);
 }
