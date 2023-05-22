@@ -2,9 +2,10 @@
 
 /**
  * run_interactive - run interactive mode
+ *@filename: the filename
  */
 
-void run_interactive(void)
+void run_interactive(char *filename)
 {
 	char *user_input;
 
@@ -15,7 +16,7 @@ void run_interactive(void)
 		if (user_input == NULL)
 			break;
 
-		process_line(user_input);
+		process_line(user_input, filename);
 		free(user_input);
 	}
 }

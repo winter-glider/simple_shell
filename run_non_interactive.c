@@ -28,12 +28,12 @@ void run_non_interactive(char *filename)
 		while ((end = strchr(ptr, '\n')) != NULL)
 		{
 			*end = '\0';
-			process_line(ptr);
+			process_line(ptr, filename);
 			ptr = end + 1;
 		}
 
 		if (ptr < buffer + read_size)
-			process_line(ptr);
+			process_line(ptr, filename);
 	}
 	close(file);
 }

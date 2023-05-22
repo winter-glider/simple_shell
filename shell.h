@@ -16,6 +16,7 @@ extern char **environ;
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <errno.h>
 
 #include <unistd.h>
 #include <fcntl.h>
@@ -26,13 +27,13 @@ extern char **environ;
 void interpret_input(char **parsed_input);
 char **parse_input(char *input);
 char *read_input(void);
-void execute_action(char **args);
+void execute_action(char **args, char *prog_name);
 void run_non_interactive(char *filename);
-void run_interactive(void);
+void run_interactive(char *filename);
 
 /* Helper functions */
 char *get_builtin_path(char *command);
-void process_line(char *line);
+void process_line(char *line, char *prog_name);
 void cleanup_memory(char **parsed_input);
 void fprint(char *input, int fd, char *replacement);
 int _strlen(char *s);
