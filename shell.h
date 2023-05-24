@@ -37,6 +37,7 @@ void process_line(char *line, char *prog_name);
 void cleanup_memory(char **parsed_input);
 void fprint(char *input, int fd, char *replacement);
 int _strlen(char *s);
+char *_strncpy(char *dest, char *src, int n);
 int _strncmp(const char *str1, const char *str2, size_t n);
 char *_strstr(char *haystack, char *needle);
 char *_strdup(const char *str);
