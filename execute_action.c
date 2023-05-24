@@ -23,7 +23,7 @@ void execute_action(char **args, char *prog_name)
 			/*Child process*/
 			execve(path, args, NULL);
 			perror("execve");
-			_exit(1);
+			_exit(EXIT_FAILURE);
 		}
 		else if (pid > 0)
 		{

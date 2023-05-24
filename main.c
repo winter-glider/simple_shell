@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	{
 		write(1, argv[0], strlen(argv[0]));
 		run_non_interactive(argv[1]);
-		return (0);
+		return (EXIT_SUCCESS);
 	}
 	else
 	{
@@ -22,11 +22,11 @@ int main(int argc, char *argv[])
 		if (!isatty(STDIN_FILENO))
 		{
 			run_interactive(argv[0]);
-			return (0);
+			return (EXIT_SUCCESS);
 		}
 		else
 		{
-			write(STDOUT_FILENO, "($) ", strlen("($) "));
+			write(STDOUT_FILENO, "$ ", strlen("$ "));
 			run_interactive(argv[0]);
 		}
 	}
