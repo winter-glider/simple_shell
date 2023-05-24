@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			write(STDOUT_FILENO, "$ ", strlen("$ "));
+			write(STDOUT_FILENO, "($)", strlen("($)"));
 			run_interactive(argv[0]);
 		}
 	}
