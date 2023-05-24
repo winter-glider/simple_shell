@@ -2,7 +2,6 @@
 #define SHELL_H
 
 extern char **environ;
-
 /* global constants */
 #define BUFFER_SIZE 1024
 
@@ -33,6 +32,7 @@ void run_interactive(char *filename);
 
 /* Helper functions */
 char *get_builtin_path(char *command);
+int get_line_number(void);
 void process_line(char *line, char *prog_name);
 void cleanup_memory(char **parsed_input);
 void fprint(char *input, int fd, char *replacement);

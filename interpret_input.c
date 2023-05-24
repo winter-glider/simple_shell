@@ -9,10 +9,10 @@ void interpret_input(char **input)
 {
 	char **env;
 
-	if (_strcmp(input[0], "exit") == 0)
+	if (strcmp(input[0], "exit") == 0)
 		exit(EXIT_SUCCESS);
 
-	else if (_strcmp(input[0], "env") == 0)
+	else if (strcmp(input[0], "env") == 0)
 	{
 		for (env = environ; *env != NULL; env++)
 			fprint("%s\n", STDOUT_FILENO, *env);
