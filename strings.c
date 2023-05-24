@@ -41,10 +41,10 @@ int _strncmp(const char *str1, const char *str2, size_t n)
 		}
 		if (str1[i] == '\0' || str2[i] == '\0')
 		{
-			return (0);
+			return (EXIT_SUCCESS);
 		}
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
 /**
   *_strdup - duplicates strings
@@ -127,7 +127,7 @@ int _strcmp(char *s1, char *s2)
 
 	}
 	else
-		return (0);
+		return (EXIT_SUCCESS);
 
 
 }
