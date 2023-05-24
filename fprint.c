@@ -28,7 +28,7 @@ void fprint(char *input, int fd, char *replacement)
 	result = malloc(prefix_len + replacement_len + suffix_len + 1);
 
 	/* Copy the prefix before "%s" */
-	strncpy(result, input, prefix_len);
+	_strncpy(result, input, prefix_len);
 	result[prefix_len] = '\0';
 
 	if (replacement != NULL)

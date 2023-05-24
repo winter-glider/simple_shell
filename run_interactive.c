@@ -17,7 +17,7 @@ void run_interactive(char *filename)
 			break;
 
 		process_line(user_input, filename);
-write(STDOUT_FILENO, "($) ", strlen("($) "));
+write(STDOUT_FILENO, "($) ", _strlen("($) "));
 		free(user_input);
 	}
 }

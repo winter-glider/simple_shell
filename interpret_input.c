@@ -15,6 +15,6 @@ void interpret_input(char **input)
 	else if (_strcmp(input[0], "env") == 0)
 	{
 		for (env = environ; *env != NULL; env++)
-			fprint("%s\n",STDOUT_FILENO, *env);
+			fprint("%s\n", STDOUT_FILENO, *env);
 	}
 }
