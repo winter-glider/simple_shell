@@ -23,6 +23,6 @@ void interpret_input(char **input)
 	else if (strcmp(input[0], "env") == 0)
 	{
 		for (env = environ; *env != NULL; env++)
-			fprint("%s\n", STDOUT_FILENO, *env);
+			printf("%s\n", *env);
 	}
 }
