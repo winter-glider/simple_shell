@@ -12,11 +12,17 @@ void execute_action(char **args, char *prog_name)
 	char *path = get_builtin_path(*args);
 	pid_t pid;
 
-	if (_strncmp(*args, "/", 1) == 0)
+	if (strncmp(*args, "/", 1) == 0)
 		path = strdup(args[0]);
 
 	if (path != NULL)
 	{
+		if (args[0] == NULL || args[0][0] == '\0' ||
+				strspn(args[0], " ") == strlen(args[0]))
+		{
+			free(path);
+			return;
+		}
 		pid = fork();
 		if (pid == 0)
 		{
@@ -26,20 +32,12 @@ void execute_action(char **args, char *prog_name)
 			_exit(EXIT_FAILURE);
 		}
 		else if (pid > 0)
-		{
-			/* Parent process*/
 			waitpid(pid, NULL, 0);
-		}
 		else
-		{
-			/*Error forking*/
 			perror("fork");
-		}
 		free(path);
 	}
 	else
-	{
 		perror(prog_name);
-	}
 }
 

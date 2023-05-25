@@ -33,7 +33,9 @@ void run_non_interactive(char *filename)
 		}
 
 		if (ptr < buffer + read_size)
+		{
 			process_line(ptr, filename);
+		}
 	}
 	close(file);
 }

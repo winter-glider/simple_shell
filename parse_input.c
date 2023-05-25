@@ -19,7 +19,7 @@ char **parse_input(char *input)
 	while (token != NULL && i < MAX_TOKENS - 1)
 	{
 		tokens[i] = malloc(MAX_TOKEN_LENGTH * sizeof(char));
-		_strncpy(tokens[i], token, MAX_TOKEN_LENGTH - 1);
+		strncpy(tokens[i], token, MAX_TOKEN_LENGTH - 1);
 		i++;
 		token = _strtok(NULL, " \t\n");
 	}

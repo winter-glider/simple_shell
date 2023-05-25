@@ -11,30 +11,30 @@
 
 void fprint(char *input, int fd, char *replacement)
 {
-	char *match = _strstr(input, "%s");
+	char *match = strstr(input, "%s");
 	char *result;
 	size_t prefix_len, replacement_len, suffix_len;
 
 	if (match == NULL)
 	{
-		write(fd, input, _strlen(input));
+		write(fd, input, strlen(input));
 		return;
 	}
 
 	prefix_len = match - input;
-	replacement_len = replacement != NULL ? _strlen(replacement) : 0;
-	suffix_len = _strlen(match + 2);
+	replacement_len = replacement != NULL ? strlen(replacement) : 0;
+	suffix_len = strlen(match + 2);
 
 	result = malloc(prefix_len + replacement_len + suffix_len + 1);
 
 	/* Copy the prefix before "%s" */
-	_strncpy(result, input, prefix_len);
+	strncpy(result, input, prefix_len);
 	result[prefix_len] = '\0';
 
 	if (replacement != NULL)
 		strcat(result, replacement);
 	strcat(result, match + 2);
 
-	write(fd, result, _strlen(result));
+	write(fd, result, strlen(result));
 	free(result);
 }
