@@ -12,7 +12,12 @@ void interpret_input(char **input)
 	if (strcmp(input[0], "exit") == 0)
 	{
 		cleanup_memory(input);
-		exit(EXIT_SUCCESS);
+		if (input[1] != NULL)
+		{
+			exit(atoi(input[1]));
+		}
+		else
+			exit(EXIT_SUCCESS);
 	}
 
 	else if (strcmp(input[0], "env") == 0)
