@@ -40,10 +40,5 @@ char *get_builtin_path(char *command)
 		}
 		i++;
 	}
-	if (access(command, F_OK) == 0)
-	{
-		return (strdup(command));
-	}
-	else
-		return (NULL);
+	return (strdup(command));
 }
