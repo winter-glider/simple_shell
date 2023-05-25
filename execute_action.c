@@ -4,7 +4,7 @@
   *execute_action - executes the arguments
   *@args: command line arguments
   *@prog_name: filename (argv[0])
-  *Return: nothing
+i  *Return: nothing
   */
 
 void execute_action(char **args, char *prog_name)
@@ -12,8 +12,8 @@ void execute_action(char **args, char *prog_name)
 	char *path = get_builtin_path(*args);
 	pid_t pid;
 
-	if (strncmp(*args, "/", 1) == 0)
-		path = strdup(args[0]);
+	/*if (strncmp(*args, "/", 1) == 0)
+		path = strdup(args[0]);*/
 
 	if (path != NULL)
 	{
