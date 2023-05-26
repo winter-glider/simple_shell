@@ -1,0 +1,36 @@
+#include "shell.h"
+
+/**
+ * contains_command_chain - check if parsed input contains a command chain
+ * @parsed_input: parsed input as an array of strings
+ * Return: true if command chain is found, false otherwise
+ */
+bool contains_command_chain(char **parsed_input)
+{
+	int i = 0;
+
+	while (parsed_input[i] != NULL)
+	{
+		if (is_command_chain_token(parsed_input[i]))
+		{
+			return (true);
+		}
+		i++;
+	}
+	return (false);
+}
+
+/**
+ * is_command_chain_token - check if a string is a command chain token
+ * @token: string to check
+ * Return: true if token represents a command chain, false otherwise
+ */
+bool is_command_chain_token(char *token)
+{
+	if (strcmp(token, ";") == 0 || strcmp(token, "&&") == 0)
+	{
+		return (true);
+	}
+	return (false);
+}
+

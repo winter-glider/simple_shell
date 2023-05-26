@@ -32,7 +32,8 @@ void run_interactive(char *filename);
 
 /* Helper functions */
 char *get_builtin_path(char *command);
-int get_line_number(void);
+int shell_setenv(const char *name, const char *value, int overwrite);
+int shell_unsetenv(const char *name);
 void process_line(char *line, char *prog_name);
 void cleanup_memory(char **parsed_input);
 void fprint(char *input, int fd, char *replacement);

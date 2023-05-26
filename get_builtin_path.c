@@ -11,11 +11,12 @@ char *get_builtin_path(char *command)
 	int i = 0;
 	char *path, *path_copy, *token, *command_path;
 
-	/*if (strncmp(command, "/", 1) == 0)
+	/*
+	*if (strncmp(command, "/", 1) == 0)
 	{
 		return (strdup(command));
-	}*/
-
+	}
+	*/
 	while (environ[i] != NULL)
 	{
 		if (strncmp(environ[i], "PATH=", 5) == 0)

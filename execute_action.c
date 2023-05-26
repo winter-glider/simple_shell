@@ -9,11 +9,13 @@ i  *Return: nothing
 
 void execute_action(char **args, char *prog_name)
 {
-	char *path = get_builtin_path(*args);
+	char *path = get_builtin_path(args[0]);
 	pid_t pid;
 
-	/*if (strncmp(*args, "/", 1) == 0)
-		path = strdup(args[0]);*/
+	/*
+	*if (strncmp(*args, "/", 1) == 0)
+		path = strdup(args[0]);
+	 */
 
 	if (path != NULL)
 	{
@@ -27,7 +29,7 @@ void execute_action(char **args, char *prog_name)
 		if (pid == 0)
 		{
 			/*Child process*/
-			execve(path, args, NULL);
+			execve(args[0], args, NULL);
 			perror("execve");
 			_exit(EXIT_FAILURE);
 		}
