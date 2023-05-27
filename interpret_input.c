@@ -14,7 +14,7 @@ void interpret_input(char **input)
 	{
 		if (input[1] != NULL)
 		{
-			if (is_valid_number(input[1]))
+			if (valid_number(input[1]))
 			{
 				exit_code = atoi(input[1]);
 				cleanup_memory(input);
@@ -47,17 +47,14 @@ void interpret_input(char **input)
   *@str: the string
   *Return: valid numbers
   */
-bool is_valid_number(const char *str)
+bool valid_number(const char *str)
 {
 	if (str == NULL || *str == '\0')
 		return (false);
 
-	if (*str == '+' || *str == '-')
-		str++;
-
 	while (*str != '\0')
 	{
-		if (*str < '0' || *str > '9')
+		if (!isdigit(*str))
 			return (false);
 		str++;
 	}
