@@ -8,16 +8,21 @@
 void interpret_input(char **input)
 {
 	char **env;
+	int temp;
 
 	if (strcmp(input[0], "exit") == 0)
 	{
-		cleanup_memory(input);
 		if (input[1] != NULL)
 		{
-			exit(atoi(input[1]));
+			temp = atoi(input[1]);
+			cleanup_memory(input);
+			exit(temp);
 		}
 		else
-			exit(EXIT_SUCCESS);
+		{
+			cleanup_memory(input);
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	else if (strcmp(input[0], "env") == 0)
