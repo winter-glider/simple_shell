@@ -18,6 +18,5 @@ char *read_input(void)
 		return (NULL);
 	}
 	input[len - 1] = '\0';
-	free(input);
 	return (input);
 }
