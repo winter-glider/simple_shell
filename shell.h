@@ -33,6 +33,7 @@ void run_interactive(char *filename);
 
 /* Helper functions */
 char *get_builtin_path(char *command);
+void exitfunc(char **input);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 int shell_setenv(const char *name, const char *value, int overwrite);
 int shell_unsetenv(const char *name);

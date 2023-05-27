@@ -8,32 +8,16 @@
 void interpret_input(char **input)
 {
 	char **env;
-	int exit_code;
 
 	if (strcmp(input[0], "exit") == 0)
 	{
+		cleanup_memory(input);
 		if (input[1] != NULL)
 		{
-			if (valid_number(input[1]))
-			{
-				exit_code = atoi(input[1]);
-				cleanup_memory(input);
-				exit(exit_code);
-			}
-			else
-			{
-				write(2, "./hsh: 1: exit: Illegal number: ", 32);
-				write(2, input[1], strlen(input[1]));
-				write(2, "\n", 1);
-				cleanup_memory(input);
-				exit(2);
-			}
+			exit(atoi(input[1]));
 		}
 		else
-		{
-			cleanup_memory(input);
 			exit(EXIT_SUCCESS);
-		}
 	}
 
 	else if (strcmp(input[0], "env") == 0)
@@ -42,23 +26,3 @@ void interpret_input(char **input)
 			printf("%s\n", *env);
 	}
 }
-/**
-  *valid_number - checks numbers
-  *@str: the string
-  *Return: valid numbers
-  */
-bool valid_number(const char *str)
-{
-	if (str == NULL || *str == '\0')
-		return (false);
-
-	while (*str != '\0')
-	{
-		if (!isdigit(*str))
-			return (false);
-		str++;
-	}
-
-	return (true);
-}
-
