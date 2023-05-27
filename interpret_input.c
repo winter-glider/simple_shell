@@ -43,7 +43,7 @@ void interpret_input(char **input)
 	}
 }
 /**
-  *is_valid_number - checks numbers
+  *valid_number - checks numbers
   *@str: the string
   *Return: valid numbers
   */
