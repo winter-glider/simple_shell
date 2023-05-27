@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 		if (!isatty(STDIN_FILENO))
 		{
 			run_interactive(argv[0]);
+			free(argv[0]);
 			return (0);
 		}
 		else
