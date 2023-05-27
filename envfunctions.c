@@ -9,20 +9,17 @@
  */
 int shell_setenv(const char *name, const char *value, int overwrite)
 {
-    if (name == NULL || value == NULL)
-    {
-        return (-1);
-    }
+	if (name == NULL || value == NULL)
+	{
+		return (-1);
+	}
+	if (setenv(name, value, overwrite) != 0)
+	{
+		return (-1);
+	}
 
-    if (setenv(name, value, overwrite) != 0)
-    {
-        return (-1);
-    }
-
-    return (0);
+	return (0);
 }
-#include "shell.h"
-
 /**
  * shell_unsetenv - Unset an environment variable
  * @name: Name of the environment variable to unset
@@ -30,16 +27,14 @@ int shell_setenv(const char *name, const char *value, int overwrite)
  */
 int shell_unsetenv(const char *name)
 {
-    if (name == NULL)
-    {
-        return (-1);
-    }
-
-    if (unsetenv(name) != 0)
-    {
-        return (-1);
-    }
-
-    return (0);
+	if (name == NULL)
+	{
+		return (-1);
+	}
+	if (unsetenv(name) != 0)
+	{
+		return (-1);
+	}
+	return (0);
 }
 
