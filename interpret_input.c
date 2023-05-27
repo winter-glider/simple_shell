@@ -21,7 +21,7 @@ void interpret_input(char **input)
 		else
 		{
 			cleanup_memory(input);
-			exit(EXIT_FAILURE);
+			exit(EXIT_SUCCESS);
 		}
 	}
 

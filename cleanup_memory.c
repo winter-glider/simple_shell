@@ -13,7 +13,9 @@ void cleanup_memory(char **parsed_input)
 		return;
 
 	for (; parsed_input[i] != NULL; i++)
+	{
 		free(parsed_input[i]);
-	*parsed_input = NULL;
+		parsed_input[i] = NULL;
+	}
 	free(parsed_input);
 }
