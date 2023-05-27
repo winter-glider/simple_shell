@@ -35,6 +35,7 @@ char *get_builtin_path(char *command);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 int shell_setenv(const char *name, const char *value, int overwrite);
 int shell_unsetenv(const char *name);
+bool is_valid_number(const char *str);
 char *create_env_entry(const char *name, const char *value);
 void process_line(char *line, char *prog_name);
 void cleanup_memory(char **parsed_input);
