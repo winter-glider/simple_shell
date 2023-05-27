@@ -18,6 +18,9 @@ char **parse_input(char *input)
 
 	while (token != NULL && i < MAX_TOKENS - 1)
 	{
+		if (token[0] == '#')
+			break;
+
 		tokens[i] = malloc(MAX_TOKEN_LENGTH * sizeof(char));
 		strncpy(tokens[i], token, MAX_TOKEN_LENGTH - 1);
 		i++;
