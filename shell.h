@@ -19,6 +19,7 @@ extern char **environ;
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <ctype.h>
 #include <dirent.h>
 #include <signal.h>
 
