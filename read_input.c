@@ -17,6 +17,7 @@ char *read_input(void)
 		free(input);
 		return (NULL);
 	}
-	input[len - 1] = '\0'; /* Remove newline character */
+	input[len - 1] = '\0';
+	free(input);
 	return (input);
 }
