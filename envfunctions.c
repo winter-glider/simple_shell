@@ -9,32 +9,36 @@
  */
 int shell_setenv(const char *name, const char *value, int overwrite)
 {
+	size_t n_len = strlen(name);
+	char *new_entry;
+	int i, var_index = -1;
+
 	if (name == NULL || value == NULL)
 	{
+		fprintf(stderr, "setenv: Missing arguments\n");
 		return (-1);
 	}
-	if (setenv(name, value, overwrite) != 0)
+	for (i = 0; environ[i] != NULL; i++)
 	{
+		if (strncmp(environ[i], name, n_len == 0 && environ[i][n_len] == '='))
+		{
+			var_index = i;
+			break;
+		}
+	}
+	if (var_index != -1 && !overwrite)
+	{
+		fprintf(stderr, "setenv: '%s' already exists\n", name);
 		return (-1);
 	}
+	new_entry = create_env_entry(name, value);
+	if (new_entry == NULL)
+		return (-1);
+	if (var_index != -1)
+		free(environ[var_index]);
 
-	return (0);
-}
-/**
- * shell_unsetenv - Unset an environment variable
- * @name: Name of the environment variable to unset
- * Return: 0 on success, -1 on failure
- */
-int shell_unsetenv(const char *name)
-{
-	if (name == NULL)
-	{
-		return (-1);
-	}
-	if (unsetenv(name) != 0)
-	{
-		return (-1);
-	}
+	environ[var_index] = new_entry;
+
 	return (0);
 }
 
