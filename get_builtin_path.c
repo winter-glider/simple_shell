@@ -11,12 +11,6 @@ char *get_builtin_path(char *command)
 	int i = 0;
 	char *path, *path_copy, *token, *command_path;
 
-	/*
-	*if (strncmp(command, "/", 1) == 0)
-	{
-		return (strdup(command));
-	}
-	*/
 	while (environ[i] != NULL)
 	{
 		if (strncmp(environ[i], "PATH=", 5) == 0)
@@ -41,5 +35,8 @@ char *get_builtin_path(char *command)
 		}
 		i++;
 	}
-	return (strdup(command));
+	if (access(command, F_OK) != -1)
+		return (strdup(command));
+	else
+		return (NULL);
 }
